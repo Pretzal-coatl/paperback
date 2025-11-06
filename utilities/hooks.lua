@@ -223,17 +223,14 @@ end
 local poker_hand_info_ref = G.FUNCS.get_poker_hand_info
 function G.FUNCS.get_poker_hand_info(_cards)
   local text, loc_disp_text, poker_hands, scoring_hand, disp_text = poker_hand_info_ref(_cards)
-  if text == "Straight Flush" then
-    local has_apostle = false
-    local all_top = true
-    for i = 1, #scoring_hand do
-      local rank = not SMODS.has_no_rank(scoring_hand[i]) and SMODS.Ranks[scoring_hand[i].base.value]
-      if rank.key == 'paperback_Apostle' then has_apostle = true end
-      if rank.key ~= 'Ace' and rank.key ~= 'paperback_Apostle' and not rank.face then all_top = false end
+  if text == 'Straight Flush' then
+    local rapture = true
+    for j = 1, #scoring_hand do
+      local rank = SMODS.Ranks[scoring_hand[j].base.value]
+      rapture = rapture and (rank.key == 'paperback_Apostle' or rank.key == 'Ace' or rank.face)
     end
-
-    if has_apostle and all_top then
-      disp_text = "paperback_Straight Flush (Rapture)"
+    if rapture then
+      disp_text = 'paperback_Straight Flush (Rapture)'
       loc_disp_text = localize(disp_text, "poker_hands")
     end
   end
