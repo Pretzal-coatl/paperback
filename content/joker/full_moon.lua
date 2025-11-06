@@ -53,7 +53,7 @@ SMODS.Joker {
 
         update_hand_text(
           { sound = 'button', volume = 0.7, pitch = 1.1, delay = 0 },
-          { mult = 0, chips = 0, handname = '', level = '' }
+          { mult = to_big(0), chips = to_big(0), handname = '', level = '' }
         )
 
         return nil, true

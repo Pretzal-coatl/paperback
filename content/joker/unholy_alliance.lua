@@ -32,7 +32,7 @@ SMODS.Joker {
     if not context.blueprint and context.paperback and context.paperback.destroying_joker then
       -- Make sure that this joker isn't being removed
       if card ~= context.paperback.destroyed_joker then
-        card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.a_chips
+        card.ability.extra.chips = to_big(card.ability.extra.chips) + to_big(card.ability.extra.a_chips)
 
         return {
           message = localize {
@@ -47,7 +47,7 @@ SMODS.Joker {
 
     -- Gains chips when playing cards are destroyed. Each card destroyed provides the specified chip_mod
     if not context.blueprint and context.remove_playing_cards and context.removed and #context.removed > 0 then
-      card.ability.extra.chips = card.ability.extra.chips + (#context.removed * card.ability.extra.a_chips)
+      card.ability.extra.chips = to_big(card.ability.extra.chips) + to_big(#context.removed * card.ability.extra.a_chips)
 
       card_eval_status_text(card, 'extra', nil, nil, nil,
         { message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chips } } })
@@ -62,7 +62,7 @@ SMODS.Joker {
 
     -- Revive ability when chips is 666 or higher
     if not context.blueprint and context.end_of_round and context.game_over then
-      if card.ability.extra.chips >= card.ability.extra.revive_treshold then
+      if card.ability.extra.chips >= to_big(card.ability.extra.revive_treshold) then
         PB_UTIL.destroy_joker(card)
 
         return {

@@ -30,7 +30,7 @@ SMODS.Joker {
     -- Upgrade joker if boss blind defeated
     if context.end_of_round and context.main_eval and not context.blueprint then
       if G.GAME.blind.boss then
-        card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.Xmult_mod
+        card.ability.extra.x_mult = to_big(card.ability.extra.x_mult) + to_big(card.ability.extra.Xmult_mod)
 
         return {
           message = localize('k_upgrade_ex'),
@@ -43,7 +43,7 @@ SMODS.Joker {
     -- Upgrade joker if boss blind triggered
     if context.debuffed_hand and not context.blueprint then
       if G.GAME.blind.triggered then
-        card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.Xmult_mod
+        card.ability.extra.x_mult = to_big(card.ability.extra.x_mult) + to_big(card.ability.extra.Xmult_mod)
 
         return {
           message = localize('k_upgrade_ex'),
@@ -56,7 +56,7 @@ SMODS.Joker {
     if context.joker_main then
       -- Upgrade joker if boss blind triggered (cards debuffed)
       if G.GAME.blind.triggered and G.GAME.blind.boss and not context.blueprint then
-        card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.Xmult_mod
+        card.ability.extra.x_mult = to_big(card.ability.extra.x_mult) + to_big(card.ability.extra.Xmult_mod)
 
         SMODS.calculate_effect({
           message = localize('k_upgrade_ex'),
@@ -65,9 +65,9 @@ SMODS.Joker {
       end
 
       -- Give the xMult during scoring
-      if card.ability.extra.x_mult > 1 then
+      if to_big(card.ability.extra.x_mult) > to_big(1) then
         return {
-          x_mult = card.ability.extra.x_mult,
+          x_mult = to_big(card.ability.extra.x_mult),
           card = card
         }
       end
