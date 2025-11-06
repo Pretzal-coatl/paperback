@@ -80,14 +80,14 @@ SMODS.Joker {
 
       calc_function = function(card)
         local text, _, scoring_hand = JokerDisplay.evaluate_hand()
-        local money = 0
+        local money = to_big(0)
 
         if G.GAME.blind.boss then
           for k, v in pairs(scoring_hand) do
             local triggers = JokerDisplay.calculate_card_triggers(v, scoring_hand)
 
             for i = 1, triggers do
-              money = money + (v.seal and (card.ability.extra.money * 2) or card.ability.extra.money)
+              money = money + (v.seal and to_big(card.ability.extra.money * 2) or to_big(card.ability.extra.money))
             end
           end
         end

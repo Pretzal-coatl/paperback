@@ -21,7 +21,7 @@ SMODS.Joker {
         card.ability.extra.a_xMult,
         card.ability.extra.threshold,
         1 + math.max(0,
-          card.ability.extra.a_xMult * math.floor(G.GAME.dollars / card.ability.extra.threshold))
+          card.ability.extra.a_xMult * math.floor(to_big(G.GAME.dollars) / to_big(card.ability.extra.threshold)))
       }
     }
   end,
@@ -30,7 +30,7 @@ SMODS.Joker {
     if context.joker_main then
       return {
         x_mult = 1 + math.max(0,
-          card.ability.extra.a_xMult * math.floor(G.GAME.dollars / card.ability.extra.threshold))
+          card.ability.extra.a_xMult * math.floor(to_big(G.GAME.dollars) / to_big(card.ability.extra.threshold)))
       }
     end
   end,

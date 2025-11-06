@@ -42,7 +42,7 @@ SMODS.Joker {
     end
 
     -- Penalize discarding cards only when the current mult is higher than 1
-    if context.discard and not context.blueprint and card.ability.extra.X_chips > 1 then
+    if context.discard and not context.blueprint and card.ability.extra.X_chips > to_big(1) then
       -- Reduce the xChips value
       card.ability.extra.X_chips = card.ability.extra.X_chips - card.ability.extra.reduction_amount
 

@@ -842,7 +842,7 @@ function PB_UTIL.spectrum_played()
   if G and G.GAME and G.GAME.hands then
     for k, v in pairs(G.GAME.hands) do
       if string.find(k, "Spectrum", nil, true) then
-        if G.GAME.hands[k].played > 0 then
+        if to_big(G.GAME.hands[k].played) > to_big(0) then
           spectrum_played = true
           break
         end

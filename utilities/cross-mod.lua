@@ -7,6 +7,14 @@ to_number = to_number or function(n)
   return n
 end
 
+lenient_bignum = lenient_bignum or function(n)
+  return n
+end
+
+number_format = number_format or function(n)
+  return n
+end
+
 -- Load modded suits
 if next(SMODS.find_mod('Bunco')) then
   local prefix = SMODS.find_mod('Bunco')[1].prefix or "bunc"

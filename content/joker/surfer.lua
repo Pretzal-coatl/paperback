@@ -31,7 +31,7 @@ SMODS.Joker {
     -- Gains +10 chips for each 10 held in hand at end of round
     if context.end_of_round and context.individual and context.cardarea == G.hand and not context.blueprint then
       if PB_UTIL.is_rank(context.other_card, card.ability.extra.rank) then
-        card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.a_chips_held
+        card.ability.extra.chips = to_big(card.ability.extra.chips) + to_big(card.ability.extra.a_chips_held)
 
         return {
           message = localize {

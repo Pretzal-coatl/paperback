@@ -35,7 +35,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if not context.blueprint and context.individual and context.cardarea == G.play then
-      card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.a_chips
+      card.ability.extra.chips = to_big(card.ability.extra.chips) + to_big(card.ability.extra.a_chips)
 
       return {
         message = localize('k_upgrade_ex'),

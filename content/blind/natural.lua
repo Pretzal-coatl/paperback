@@ -14,11 +14,11 @@ SMODS.Blind {
 
       for k, v in pairs(G.GAME.hands) do
         if SMODS.is_poker_hand_visible(k) then
-          min = min and (min < v.level and min or v.level) or v.level
+          min = to_big(min) and (to_big(min) < v.level and to_big(min) or v.level) or v.level
         end
       end
 
-      if min and G.GAME.hands[context.scoring_name].level > min then
+      if min and G.GAME.hands[context.scoring_name].level > to_big(min) then
         for _, v in pairs(context.scoring_hand) do
           v:set_debuff(true)
           v.debuffed_by_blind = true

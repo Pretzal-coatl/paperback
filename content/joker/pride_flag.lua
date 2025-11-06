@@ -49,7 +49,7 @@ if PB_UTIL.config.suits_enabled then
       if context.before and not context.blueprint then
         -- Reset if played hand contains a 'Straight'
         if next(context.poker_hands['Straight']) then
-          card.ability.extra.chips = 0
+          card.ability.extra.chips = to_big(0)
 
           SMODS.calculate_effect {
             message = localize('k_reset'),
@@ -58,7 +58,7 @@ if PB_UTIL.config.suits_enabled then
           }
           -- Give chips if hand contains a Spectrum
         elseif PB_UTIL.get_unique_suits(context.full_hand, nil, true) >= 5 then
-          card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.a_chips
+          card.ability.extra.chips = to_big(card.ability.extra.chips) + to_big(card.ability.extra.a_chips)
 
           SMODS.calculate_effect {
             message = localize('k_upgrade_ex'),

@@ -34,7 +34,7 @@ SMODS.Joker {
     -- Make sure that this joker isn't being removed
     and not (context.paperback and context.paperback.destroyed_joker and card == context.paperback.destroyed_joker)
     then
-      card.ability.extra.chips = card.ability.extra.chips + count * card.ability.extra.a_chips
+      card.ability.extra.chips = to_big(card.ability.extra.chips) + to_big(count) * to_big(card.ability.extra.a_chips)
 
       return {
         message = localize {
@@ -55,7 +55,7 @@ SMODS.Joker {
 
     -- Revive ability when chips is 666 or higher
     if not context.blueprint and context.end_of_round and context.game_over then
-      if card.ability.extra.chips >= card.ability.extra.revive_treshold then
+      if card.ability.extra.chips >= to_big(card.ability.extra.revive_treshold) then
         PB_UTIL.destroy_joker(card)
 
         return {

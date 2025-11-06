@@ -28,7 +28,7 @@ SMODS.Joker {
     --Increase mult counter if card is a face
     if not context.blueprint and context.before and #context.full_hand == 1 then
       if G.GAME.current_round.hands_played == 0 and context.scoring_hand[1]:is_face() then
-        card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.Xmult_mod
+        card.ability.extra.x_mult = to_big(card.ability.extra.x_mult) + to_big(card.ability.extra.Xmult_mod)
         card.ability.extra.active = true
 
         return {

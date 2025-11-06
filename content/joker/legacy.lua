@@ -35,7 +35,7 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if not context.blueprint and context.remove_playing_cards and #context.removed > 0 then
-      local mult_gained = 0
+      local mult_gained = to_big(0)
 
       for _, v in ipairs(context.removed) do
         if v.ability.set ~= "Enhanced" then
@@ -43,8 +43,8 @@ SMODS.Joker {
         end
       end
 
-      if mult_gained > 0 then
-        card.ability.extra.mult = card.ability.extra.mult + mult_gained
+      if mult_gained > to_big(0) then
+        card.ability.extra.mult = to_big(card.ability.extra.mult) + mult_gained
 
         return {
           message = localize {
