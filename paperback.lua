@@ -6,6 +6,7 @@ SMODS.load_file("utilities/misc_functions.lua")()
 SMODS.load_file("utilities/ui.lua")()
 SMODS.load_file("utilities/hooks.lua")()
 SMODS.load_file("utilities/cross-mod.lua")()
+SMODS.load_file("utilities/hopcroft_karp.lua")()
 if next(SMODS.find_mod('Cryptid')) then
   SMODS.load_file("utilities/cryptid.lua")()
 end
