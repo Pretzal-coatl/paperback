@@ -530,7 +530,7 @@ return {
           "This Joker gains {X:mult,C:white}X#1#{} Mult",
           "for each {C:attention}editioned Joker{} card",
           "{s:0.9,C:dark_edition}Negatives{s:0.9,C:inactive} are excluded{}",
-          "{C:inactive}(Currently {X:,mult,C:white}X#2#{C:inactive} Mult)"
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
         },
         unlock = {
           "Have at least {E:1,C:attention}#1#",
@@ -683,6 +683,14 @@ return {
           "{C:attention,E:1}suits{} in",
           "your deck"
         }
+      },
+      j_paperback_one_shift_more = {
+        name = "One Shift More",
+        text = {
+          "This Joker gains {X:mult,C:white}X#1#{} Mult",
+          "for every {C:attention}#2#{C:inactive} [#3#]{} scored {C:hearts}Heart{} cards",
+          "{C:inactive}(Currently {X:mult,C:white}#4#{C:inactive} Mult)",
+        },
       },
       j_paperback_the_normal_joker = {
         name = "The Normal Joker",
@@ -1139,6 +1147,13 @@ return {
         text = {
           "Randomly {C:attention}enhance{} the {C:attention}first",
           "scored {C:attention}face{} card each hand"
+        }
+      },
+      j_paperback_gauze = {
+        name = "Gauze",
+        text = {
+          "If last discard of round is a single card,",
+          "it becomes a {C:attention}#1#{}"
         }
       },
       j_paperback_jester_of_nihil = {
@@ -2000,6 +2015,46 @@ return {
           "{C:attention,E:1}50{} additional {C:attention,E:1}Chips{}",
         },
       },
+      j_paperback_the_batter = {
+        name = "The Batter",
+        text = {
+          "Scored {C:attention}3s{} are destroyed",
+          "{C:inactive}({C:attention}#1#{C:inactive}/{C:attention}#2#...{C:inactive})",
+          "{s:0.9,C:inactive}(Doesn't require room..?){}",
+        }
+      },
+      j_paperback_off_switch = {
+        name = "OFF Switch",
+        text = {
+          "When a {C:attention}playing card{} is destroyed,",
+          "attempt to destroy leftmost destructible Joker",
+          "and gain {X:mult,C:white}X#1#{} Mult if successful",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+        }
+      },
+      j_paperback_off_alpha = {
+        name = "Alpha",
+        text = {
+          "Gains {C:chips}+#1#{} Chips for each",
+          "Joker {C:attention}destroyed",
+          "{C:inactive}(Currently {C:chips}+#2# {C:inactive}Chips)",
+        },
+      },
+      j_paperback_off_omega = {
+        name = "Omega",
+        text = {
+          "Gains {C:mult}+#1#{} Mult for each",
+          "Joker {C:attention}destroyed",
+          "{C:inactive}(Currently {C:mult}+#2# {C:inactive}Mult)",
+        },
+      },
+      j_paperback_off_epsilon = {
+        name = "Epsilon",
+        text = {
+          "Earns {C:gold}$#1#{} for each",
+          "Joker {C:attention}destroyed",
+        },
+      },
       j_paperback_photocopy = {
         name = "Photocopy",
         text = {
@@ -2083,6 +2138,14 @@ return {
           "is a single {C:attention}face{} card, destroy it",
           "and this Joker gains {X:mult,C:white}X#1#{} Mult",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)"
+        }
+      },
+      j_paperback_deck_of_cards = {
+        name = "Deck of Cards",
+        text = {
+          "If played hand is a single {C:attention}#1#{},",
+          "this Joker gains {X:chips,C:white}X#2#{} Mult, ",
+          "{C:inactive}(Currently {X:chips,C:white}X#3#{} {C:inactive}Chips)"
         }
       },
       j_paperback_the_wonder_of_you = {
@@ -2227,6 +2290,16 @@ return {
           "at {C:attention}end of round{}",
           "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
         }
+      },
+      j_paperback_happy_accident = {
+        name = "Happy Accident",
+        text = {
+          "Each {C:attention}#1#{}",
+          "held in hand",
+          "gives {X:chips,C:white}XChips{}",
+          "at {C:attention}halved{} scaling",
+          "{X:chips,C:white}X1.5{C:inactive} -> {X:chips,C:white}X1.25{}",
+        },
       },
       j_paperback_watercolor_joker = {
         name = "Watercolor Joker",
@@ -3751,6 +3824,9 @@ return {
       paperback_punch_card_ex = "Wrong Warp!",
       paperback_hamsa_reverse = "Reversed!",
       paperback_der_freischutz_fire = "Fire...",
+      paperback_off_switch_ex = "Swing!",
+      paperback_one_shift_more_true = "Heart!",
+      paperback_one_shift_more_false = "Beat!",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_no_requires_restart = "Doesn't Require Restart",
